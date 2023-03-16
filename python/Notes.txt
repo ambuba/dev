@@ -1,0 +1,31 @@
+*** Resources
+- https://git.io/python3
+- https://learnpython.netlify.com
+
+
+*** Introduction
+
+- type([]) => List
+- dir(list) => Available methods
+- help(list.reverse) => More info
+
+
+*** Functions
+
+- Organize code so it's reusable
+- Function names are in lowercase and can have underscores
+- Default arguments come last in a function definition
+
+*** Lists & Tuples
+
+- Retains the order of items in them
+- Needs indices to access the items in a list
+- Lists can be sorted in place (list.sort()) or by creating a copy and leaving the original list unaltered (sorted(list))
+- List lookups are slow especially for large lists
+- Index method finds the first occurence of a match
+- Tuples -light-weight collections used to keep track of related but different items ()
+- Tuples are immutable - Once defined, tuple items cannot be changed
+- Tuples are not inplace sortable since they are immutable
+- Unlike lists which store collections of similar items together, tuples are considered to contain a snapshot of data
+- Tuple items are accessed similarly with indices like lists
+- Tuples can be unpacked and stored into variables of our choice
