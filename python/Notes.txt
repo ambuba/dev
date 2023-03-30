@@ -1,6 +1,8 @@
 *** Resources
 - https://git.io/python3
 - https://learnpython.netlify.com
+- https://learnpython.dev
+- https://practical.learnpython.dev/
 
 
 *** Introduction
@@ -8,6 +10,8 @@
 - type([]) => List
 - dir(list) => Available methods
 - help(list.reverse) => More info
+- isinstance
+- issubclass
 
 
 *** Functions
@@ -29,3 +33,89 @@
 - Unlike lists which store collections of similar items together, tuples are considered to contain a snapshot of data
 - Tuple items are accessed similarly with indices like lists
 - Tuples can be unpacked and stored into variables of our choice
+
+
+*** Sets
+
+- Datatype that allows storing of other immutable types in an unsorted/unordered way - do not support indexing
+- No duplicates allowed, an item can only be contained in a set once
+- Create and empty set as set()
+- Sets are mutable
+- Search operations in sets are fast since it uses the hash method under the hood
+- Intersection (|) - Create a set to contain the items that are common to both sets (unique to each set)
+- Difference (^) - Create a set to contain the items that are not common to both sets
+- Union (&) - Combine the items of different sets
+- Frozen set is an immutable set
+
+*** Dictionaries
+
+- Store information in key/value pairs
+- A dictionary is sorted by insertion order
+- Are mutable - can add and remove items
+- Keys must be immutable data types - Only immutable types can be used as dictionary keys
+- Dictionary items can be accessed suing the keys e.g. numbers['one']
+
+*** List Comprehensions
+
+- Unique way to create lists in Python
+- Consists of brackets containing an expression followed by a for clause, then zero or more for or if clauses
+- Can be any kind of Python object
+- Takes the form of [<value> for <vars> in <iter>]
+
+*** Generators
+
+- A type of iterable object
+- Can iterate through each element 
+- Unlike a list, generators evaluate elements on demand - intead of assembling all at once
+- Takes the form of (<value> for <vars> in <iter>)
+- Generators do not store state - you need to redefine after exhausting/using it
+
+*** Slicing
+
+- Can use both negative and positive indices
+- string[a:b]
+
+
+*** Working With Files
+
+- my_file = open("my_file.txt", "w/a")
+- By default, file opens ready for reading ("r")
+- Use a context manager when working with files to ensure proper cleanup - "with open()"
+- This auto-magically handles and closes any exceptions without you having to worry about them
+
+
+*** Object Oriented Programming
+
+- OOP is a language model/paradigm in which proeprties or behaviours are organized into "objects"
+- Class - a type of something e.g. "Car"
+- Instance - a specific thing e.g. "my Audi" which is a type of "Car"
+- Both classes and instances can have variables and methods
+- Changing a class variable will change what is returned when you get that variable from an instance
+- Changing an instance variable only applies to that one instance
+- "self" - used inside classes to refer to a bound instance variable or object - self refers to an instance
+
+- Magic methods - defined with 2 undescores (dunder) before and after the method name (__name__)
+- Examples - __str__, __repr__, __init__, __main__
+
+
+*** Inheritance
+
+- Useful for sharing and reusing code
+- Makes it possible to break up and organize code into a hierarchy, from generic to specific
+- Objects belonging to classes that are higher up in the hierarchy are accessible by subclasses (not vice versa)
+
+
+*** Tracebacks & Exceptions 
+
+- Catch exceptions with "try" and "except" code
+- Catch exceptions in as specific way as possible - catch more specific exceptions first. Don't catch base exceptions
+- Read tracebacks from the bottom upwards to understand exceptions
+- You can catch and re-raise exceptions in a custom manner
+
+
+*** Python Web Frameworks
+
+- Frameworks support crating of applications while simplifying and abstracting away alot of what happens under the hood
+- Provide alot of plumbing for you allowing you to focus on building the application itself
+- Python Grameworks - Django, Flask
+- Flask - a "microframework" that allows users to make basic backend APIs and web apps with far less code.
