@@ -1,0 +1,63 @@
+*** Resources
+
+- https://github.com/getify/You-Dont-Know-JS
+- https://runjs.app/
+- https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+- http://csbin.io/closures
+
+*** Introduction
+
+- Arrays & lists are sub-types of the object type
+
+*** JS Pillars
+
+- Types/Coercions - Primitive, Converting, Checking Equality 
+- Scope/Closure - 
+- this/Prototypes
+
+- Primitive types - undefined, string, number, boolean, object, symbol
+- Undefined - undeclared or declared but with no assigned value
+- Null returns "object" as its type. This is a historical bug in JS that has not been fixed yet.
+- NaN - Denotes an invalid numeric operation
+- New - instantiates Object(), Array(), Function(), Date(), RegExp(), Error()
+
+- Converting types - string concatenation (number to string)
+- Truthy/Falsy - Which values will become falss or ture if we attempt to convert them to Boolean
+- Falsy values - "", 0, -0, null, NaN, false, undefined
+- Truthy - Everything else
+- Conversion can also be implicit. For instance, when comparing 2 values of which one is a number, implicit conversion tries to convert the other value into a number too.
+- This way you may not need to explicitly convert the second value into a number first
+- This will only work as intended if the types involved in every operation are clear
+- Avoid things that are hard/confusing to figure out to the reader
+
+- Checking Equality (== and ===) - Double equals allows coercion (for different types) while triple equals disallows coercion (means types must be the same)
+- This means that when dealing with the same types, == and === basically do the same work. The output is the same
+
+*** Scope / Closures
+
+- Scope - Where the JS engine looks for things (Where in memory specifically)
+- Undefined - Declared but doesn't have a value
+- Undeclared - Never been declared
+- Function expression - a function that is assigned to a value (Named/Anonymous)
+- Immediately Invoked Functional Expression (IIFE) - (function_name)()
+- IIFE allows encapsulation of some behaviours within the block scope
+- Block Scoping - Use "let" instead of a "var" within the curly braces to prevent encroschment of variables in the outer scope
+- Closure - When a function remembers the variables outside of it, even if you pass that function elsewhere
+- Practical uses - Helper functions, iterators and generators, module pattern (preserve stae without poluuting the global namespace), asynchronous JavaScript (persist state)
+
+*** Functions With Memories
+
+- When functions get called, they create a live store of data (local memory/variable environment/state) for that function's execution context
+- When the function finishes executing, its local memory is deleted (except for the returned value)
+- But what if a function could hold on to live data between executions?
+- This would let our function definitions have an associated cache/persistent memory
+- It all starts with us returning a function from another function
+- P.L.S.R.D => Persistent Lexical Scope Referenced Data (Closure) - Backpack* => Occurs via a hidden property called [[scope]]
+
+
+*** this/Prototypes
+
+- A function's "this" keyword references the execution context for that call, determined entirely by how the function was called
+- A "this" aware function can thus have a different context each time it's called, which makes it more flexible and reusable (dynamic context)
+- Prototypes - 
+- class {} - Layered on top of prototypes
