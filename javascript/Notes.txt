@@ -61,3 +61,28 @@
 - A "this" aware function can thus have a different context each time it's called, which makes it more flexible and reusable (dynamic context)
 - Prototypes - 
 - class {} - Layered on top of prototypes
+
+
+*** Asynchronous JavaScript
+
+- Promises - Most significant ES6 feature
+- Aysnchronicity - makes dynamic web apps possible
+- Event Loop - JS triage
+- Microtask queue, Callback queue and Web Browser features (APIs)
+- JS is ansynchronous since it executes each line/instructions at a time
+- JS is single threaded (one command runs at a time)
+- JS is synchronously executed (each line runs in the order that the code appears)
+
+- So what if we have  a task accessing Twitter's server to get new tweets that takes a long time?
+- Challenge - We want to wait for the tweets to be stored in tweets so that thy are available to run displayTweets on - but no code can run in the meantime
+- What if we try to delay a function directly using setTimeout?
+- SetTimeout - a builtin function - it's first argument is the function to delay followd by the delay in millisecond (ms)
+- Our core JS engine has 3 main parts - Thread of Execution, Memory/Variable Environment, Call Stack
+
+- We need to add some new components - Web Browser APIs/Node background APIs, Promises, Event Loop, Callback/Task queue and micro task queue
+- When interacting with a world outside of JS (e.g. Calling Browser APIs - SetTimeout, Fetch, Storage, Sockets etc), we need rules
+- All global execution contexts must finish/complete first before any code interacting outside JS
+- For callbacks with interactions outside JS, they must remain in the callback queue once completed and wait for the call stack to be empty before they are loaded back
+- The feature that makes all this possible is called the Event Loop - It consistently checks whether both the call stack and the callback queue are empty
+
+- ES5 Web Browser APIs With Callback Functions - Problem: Our response data is only available in the callback function (Callback Hell)
