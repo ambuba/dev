@@ -65,9 +65,11 @@
 
 *** Asynchronous JavaScript
 
+- Aysnchronicity - implies/means executing code in a different manner than which it was sent for execution
 - Promises - Most significant ES6 feature
 - Aysnchronicity - makes dynamic web apps possible
 - Event Loop - JS triage
+- Event loop checks whether there the global execution context is done as well as the callback queue
 - Microtask queue, Callback queue and Web Browser features (APIs)
 - JS is ansynchronous since it executes each line/instructions at a time
 - JS is single threaded (one command runs at a time)
@@ -86,3 +88,34 @@
 - The feature that makes all this possible is called the Event Loop - It consistently checks whether both the call stack and the callback queue are empty
 
 - ES5 Web Browser APIs With Callback Functions - Problem: Our response data is only available in the callback function (Callback Hell)
+
+
+*** Promises
+
+- Use of 2-pronged "facade" functions to:
+- Initiate background web browser work
+- Return a placeholder object (promise) immediately in JS
+- The placeholder is a JS promise object {} with a "value:" and "on fulfilled: []" array
+- So now we have 2 consequencies - One in the browser and the other in JS
+- Once the external request is fulfilled, it's response is stored in "value" property of the promise object (this "value" is a hidden property)
+- We can then set a function that gets executed once this happens. This function is stored in the hidden "on-fulfilled" property of the promise object
+- The contents of "value" property could also be passed in as an argument to this function (Using "then" keyword)
+
+- We also need to know how our promise-deferred functionality gets back into JS (call stack) for execution
+- Any code that we want to run on the returned data must also be saved on the promise objectThis is added using ".then" method to the hidden property "onFulfilment"
+- You may also use ".catch()" for error handling (this is also a hidden property on the promise object). Alternatively, you can can add a separate argument when triggering the function to attacch on fulfillment of the promise task
+- Promise objects will automatically trigger the attached function to run (with its input being the returned data or response)
+- Promise tasks are stored in a separate "microtask" queue and consequently have a higher execution priority on the call stack compared to the call back queue
+
+*** Execution Priority
+
+- Global Execution Context => Microtask Queue (Promises) => Call Back Queue
+- Hold promise-defeered functions in a microtask queue and callback function in a task queue (Callback queue) when the Web Browser Feature (API) finishes
+- Add the function to the call stack (execute the function) when - call stack is empty and all global code has run (have the event loop continuously check this condition)
+- Prioritize functions in the microtask queue over the callback queue
+
+*** Promises, Web APIs, Callback & Microtask Queues
+
+- Enable us to build non-blocking apps - We don't have to wait in the single thread and don't block further code from running
+- However long it takes - We cannot predict when our Browser features work will finish so we let JS handle autoamtically running the function on its completion
+- Web apps - Asynchronous JS is the backbone of the moder web - Let's us build fast non-blocking apps
