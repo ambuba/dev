@@ -3,6 +3,7 @@
 - https://github.com/getify/You-Dont-Know-JS
 - https://runjs.app/
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+- https://developer.mozilla.org/en-US/docs/Web/API
 - http://csbin.io/closures
 
 *** Introduction
@@ -119,3 +120,43 @@
 - Enable us to build non-blocking apps - We don't have to wait in the single thread and don't block further code from running
 - However long it takes - We cannot predict when our Browser features work will finish so we let JS handle autoamtically running the function on its completion
 - Web apps - Asynchronous JS is the backbone of the moder web - Let's us build fast non-blocking apps
+
+
+*** Classes & Prototypes
+
+- Basis for Object Oriented JavaScript
+- An popular paradigm for structuring complex code
+- Prototype chain - the feature behind-the-scenes that enables emulation of OOP but is a compelling tool in itself
+- "new" and "class" keywords are tools to automate our object and method creation
+- Easy to reason about => Easy to add features/functionality to => Efficient and performant
+- Objects - store functions with their associated data
+- This is the principle of encapsulation
+- Functions stored/contained in objects are referred to as methods
+- When JS looks up for a property in an object and fails to find it, it refers to the hidden __proto__ property in the object and tries to locate the missing property (where __proto__ links to)
+- All objects in JS have a __proto__ property linked to "object.prototype" object - This object contains several shared useful methods available for use.
+- This is achieved when we create objects using the "Object.create()" method
+- The "this" keyword attaches itself to the object on the left of the dot "." separator
+- For example, in "student.increment()", "this" will represent or attach to "student"
+- Arrow functions override the normal this rule - lexically scoped "this"
+- Avoid using "this" on methods in an object - rather, it can be used within the functions that are defined within the method
+
+
+*** The New Keyword
+
+- When we call a function that returns an object with "new" in front, we automate 2 things
+- Creation of a new user object
+- Return the new user object
+- But how do we reference the auto-crteated object?
+- The new object auto-created is referenced to with "this"
+- Functions can act as both functions and objects
+- All functions have a default property "prototype" on their object version
+- Benefits - Faster to write, often used in practice in professional code
+
+
+*** Class Keyword
+
+- Adds syntactic sugar but under the hood, operation remains the same
+- Emerging as a new standard
+- Feels more like style from other languages e.g Python
+
+- "new" and "class" keywords do not change anything under the hood- They simply help to wrap and automate stuff under the hood
